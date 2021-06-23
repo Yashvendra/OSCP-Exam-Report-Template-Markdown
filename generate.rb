@@ -12,9 +12,19 @@ templates = [
     path: 'src/OSCP-exam-report-template_OS_v1.md'
   },
   {
+    exam: 'OSCP',
+    name: 'official Offensive Security template v2',
+    path: 'src/OSCP-exam-report-template_OS_v2.md'
+  },
+  {
     exam: 'OSWE',
     name: 'official Offensive Security template v1',
     path: 'src/OSWE-exam-report-template_OS_v1.md'
+  },
+  {
+    exam: 'OSWE',
+    name: 'noraj improved template v1',
+    path: 'src/OSWE-exam-report-template_noraj_v1.md'
   },
   {
     exam: 'OSCE',
@@ -30,6 +40,21 @@ templates = [
     exam: 'OSWP',
     name: 'official Offensive Security template v1',
     path: 'src/OSWP-exam-report-template_OS_v1.md'
+  },
+  {
+    exam: 'OSED',
+    name: 'official Offensive Security template v1',
+    path: 'src/OSED-exam-report-template_OS_v1.md'
+  },
+  {
+    exam: 'OSED',
+    name: 'epi improved template v1',
+    path: 'src/OSED-exam-report-template_epi_v1.md'
+  },
+  {
+    exam: 'OSEP',
+    name: 'official Offensive Security template v1',
+    path: 'src/OSEP-exam-report-template_OS_v1.md'
   }
 ]
 
@@ -70,7 +95,6 @@ pdf = "output/#{exam}-#{osid}-Exam-Report.pdf"
 # Generating archive
 puts 'Generating archive...'
 %x(7z a output/#{exam}-#{osid}-Exam-Report.7z \
-  -p#{osid} \
   #{File.expand_path(pdf)}
 )
 
@@ -82,7 +106,6 @@ if choice.downcase == 'y'
   lab = gets.chomp
   puts 'Updating archive...'
   %x(7z a output/#{exam}-#{osid}-Exam-Report.7z \
-    -p#{osid} \
     #{File.expand_path(lab)}
   )
 end
